@@ -13,17 +13,19 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    console.log("entered login");
     // Check if user is already logged in
-    const token = localStorage.getItem('token');
-    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    // const token = localStorage.getItem('token');
+    // const user = JSON.parse(localStorage.getItem('user') || 'null');
     
-    if (token && user) {
-      if (user.role) {
-        navigate('/dashboard');
-      } else {
-        navigate('/role-selection');
-      }
-    }
+    // if (token && user) {
+    //   if (user.role) {
+    //     navigate('/dashboard');
+    //   } else {
+    //     navigate('/role-selection');
+    //   }
+    // }
+    // navigate('/role-selection');
   }, [navigate]);
 
   const handleChange = (e) => {
@@ -47,11 +49,12 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(response.data.user));
 
       // Redirect based on role
-      if (response.data.user.role) {
-        navigate('/dashboard');
-      } else {
-        navigate('/role-selection');
-      }
+      // if (response.data.user.role) {
+      //   navigate('/dashboard');
+      // } else {
+      //   navigate('/role-selection');
+      // }
+      navigate('/role-selection');
     } catch (err) {
       setError(err.response?.data?.error || 'An error occurred during login');
     } finally {

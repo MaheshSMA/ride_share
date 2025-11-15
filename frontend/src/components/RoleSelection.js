@@ -20,9 +20,9 @@ const RoleSelection = () => {
     }
 
     // If user already has a role, redirect to dashboard
-    if (user.role) {
-      navigate('/dashboard');
-    }
+    // if (user.role) {
+    //   navigate('/dashboard');
+    // }
   }, [navigate]);
 
   const handleRoleSelect = (role) => {
